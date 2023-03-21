@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html land="en">
     <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
         <title> Movie Information </title>
         <meta charset="utf-8">
-        <style>
-
-        </style>
     </head>
     <body>
-        <h1>{{title}}</h1>
-        <h2>{{genre_string}}</h2>
-        <p>{{description}}</p>
-        <img src={{poster_link}} width="400" height=auto> <br>
-        <a href={{wiki_link}}> Wikipedia page for {{title}} </a>
+        <div class="favs-title">
+            <p>Developer's choice. Refresh for another<p>
+        </div>
+        <div class="content">
+            <h1><u>{{title}}</u></h1>
+            <h2>Rating: {{rating}} / 10</h2>
+            <h2>{{genre_string}}</h2>
+            <p>{{description}}</p>
+            <img src={{poster_link}} width="400" height={{poster_height}}> <br>
+            <a href={{wiki_link}}> Wikipedia page for {{title}} </a>
+    </div>
     </body>
 </html>

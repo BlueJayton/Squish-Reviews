@@ -8,7 +8,8 @@ load_dotenv(find_dotenv())
 
 app = flask.Flask(__name__)
 
-list_of_movies = ["Scott%20Pilgrim%20vs.%20the%20World", "Pan%27s%20Labyrinth", "The%20Departed"]
+list_of_movies = ["Scott%20Pilgrim%20vs.%20the%20World", "Pan%27s%20Labyrinth", "The%20Departed", "The%20Shawshank%20Redemption", "Django%20Unchained", 
+                  "Spider-Man:%20Into%20the%20Spider-Verse", "Inglorious%20Basterds", "Mad%20Max:%20Fury%20Road", "Troll%202", "Hot%20Fuzz"]
 
 #Make url vars for TMDB API
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
@@ -46,6 +47,11 @@ def driver():
     title = movie_info[0]["title"]
     description = movie_info[0]["overview"]
     poster_link = IMG_BASE_URL + movie_info[0]["poster_path"]
+    #rating times .1 to make a percentage from 0 to 1
+    rating = round(movie_info[0]["vote_average"], 1)
+    rating_from_0_to_1 = rating *.1
+    height_calc = 750 * rating_from_0_to_1
+    poster_height = str(height_calc) + "px"
     
     #genre info
     list_of_genre_ids = movie_info[0]["genre_ids"]
@@ -60,7 +66,8 @@ def driver():
     wiki_page_id = list(wiki_link_response.json()["query"]["pages"]) [0]
     wiki_link = wiki_link_response.json()["query"]["pages"][wiki_page_id]["fullurl"]
     
-    
+    print(title)
+    print(rating)
 
     return flask.render_template (
         "webpage.html",
@@ -68,7 +75,9 @@ def driver():
         genre_string = genre_string,
         description = description,
         poster_link = poster_link,
-        wiki_link = wiki_link
+        poster_height = poster_height,
+        wiki_link = wiki_link,
+        rating = rating
     )
     
 app.run(debug = True)
