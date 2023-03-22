@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html land="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
+        <title> Squish Ratings </title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form method = post>
+            <input type="submit" name="random_movie" value="Random Movie">
+            <input type="text" id="search_text" name="search_text">
+            <input type="submit" name="search_button" value="Search" action="/search/<search_text>">
+            <br>
+            </form>
+        <div class="content">
+            <h1><u>{{movie_info["title"]}}</u></h1>
+            <h2>Rating: {{movie_info["rating"]}} / 10</h2>
+            <h2>{{movie_info["genre_string"]}}</h2>
+            <p>{{movie_info["description"]}}</p>
+            <img src={{movie_info["poster_link"]}} width="400" height={{movie_info["poster_height"]}}> <br>
+            <a href={{movie_info["wiki_link"]}}> Wikipedia page for {{movie_info["title"]}} </a>
+        </div>
+    </body>
+</html>
