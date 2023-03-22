@@ -28,7 +28,7 @@ def random_movie():
     movie_title_url = squish_ratings_functions.make_url_title(movie_title)
     movie_info = squish_ratings_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
         
-    if 'Random Movie' in request.form.values():
+    if "Random Movie: Dev's Favorites" in request.form.values():
         return redirect(url_for("random_movie"))
     elif 'Search' in request.form.values():
         movie_title = request.form.get("search_text")
@@ -46,7 +46,7 @@ def search(movie_title_url):
     
     movie_info = squish_ratings_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
     
-    if 'Random Movie' in request.form.values():
+    if "Random Movie: Dev's Favorites" in request.form.values():
         return redirect(url_for("random_movie"))
     elif 'Search' in request.form.values():
         movie_title = request.form.get("search_text")

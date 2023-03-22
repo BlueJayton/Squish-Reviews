@@ -34,7 +34,7 @@ def get_movie_info_TMDB (movie, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL):
     #rating times .1 to make a percentage from 0 to 1
     movie_info["rating"] = round(movie_request_json[0]["vote_average"], 1)
     rating_from_0_to_1 = movie_info["rating"] *.1
-    height_calc = 750 * rating_from_0_to_1
+    height_calc = 700 * rating_from_0_to_1
     movie_info["poster_height"] = str(height_calc) + "px"
     
     #genre info
