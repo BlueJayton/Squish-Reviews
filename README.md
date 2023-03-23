@@ -14,6 +14,7 @@ Using the search text entry box and the search button, you can search for any mo
 
 Depending on the rating of the movie, the poster for the movie will be squished. The worse the rating, the more squished it'll be.
 
+ 
 
 In order to fork this and have it ready to be used, you should install all of the languages, frameworks, and libraries above, and get an API key for TMDB.
 The API key should be kept in your .env (which should be in your .gitignore) and make sure that the name of the API key in the .env matches the one in the code.
@@ -22,6 +23,7 @@ One major technical issue was that I kept getting failed deployments due to pack
 
 Another issue is that I wanted the title of the movie to be in the url whenever a search was done, that way you can send links to other people that take you to specific movies. In order to accomplish this, I had to learn how to do flask redirects and how to pass variables with them. 
 
+ 
 
 The first persisting problem is that the wiki links aren't 100% accurate. "Room" is a movie, but if you click the wiki link, it takes you to Room as in the architecture. IN the future, I will try to fix this. 
 
