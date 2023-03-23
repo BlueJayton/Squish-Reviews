@@ -1,6 +1,6 @@
 # project1-jayton-schreiner
 
-![Couldn't find logo](https://github.com/BlueJayton/project1-jayton-schreiner/blob/main/SQUISHreviews.png "Squish Reviews. My girlfriend made this logo")
+<img src="https://github.com/BlueJayton/project1-jayton-schreiner/blob/main/SQUISHreviews.png" width="200" height="200" "Squish Reviews. My girlfriend made this logo")
 # [Squish Reviews](https://squish-reviews.fly.dev)
 ## A Website where you can tell the rating of a movie by how squished it's poster is!
 
@@ -12,7 +12,7 @@ The website will start with a randomly selected movie from a list of 10 of my fa
 
 Using the search text entry box and the search button, you can search for any movie via the TMDB API.
 
-Depending on the rating of the movie, the poster for the movie will be squished. The worse the rating, the more squished it'll be.
+Depending on the rating of the movie, the poster for the movie will be squished. The worse the rating, the more squished it'll be. </br></br>
 
  
 
@@ -21,9 +21,7 @@ The API key should be kept in your .env (which should be in your .gitignore) and
 
 One major technical issue was that I kept getting failed deployments due to packages and dependencies not being able to download. To fix this, I installed pipdeptree with pip and used to delete every single package that wasn't explicitly needed for the project.
 
-Another issue is that I wanted the title of the movie to be in the url whenever a search was done, that way you can send links to other people that take you to specific movies. In order to accomplish this, I had to learn how to do flask redirects and how to pass variables with them. 
-
- 
+Another issue is that I wanted the title of the movie to be in the url whenever a search was done, that way you can send links to other people that take you to specific movies. In order to accomplish this, I had to learn how to do flask redirects and how to pass variables with them. </br></br>
 
 The first persisting problem is that the wiki links aren't 100% accurate. "Room" is a movie, but if you click the wiki link, it takes you to Room as in the architecture. IN the future, I will try to fix this. 
 
