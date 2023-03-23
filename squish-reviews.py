@@ -1,7 +1,7 @@
 from flask import *
 from dotenv import load_dotenv, find_dotenv
 import random
-import squish_ratings_functions
+import squish_reviews_functions
 
 load_dotenv(find_dotenv())
 
@@ -25,14 +25,14 @@ WIKI_URL_DICT = {"WIKI_BASE_URL" : "https://en.wikipedia.org/w/api.php?",
 def random_movie():
        
     movie_title = random.choice(list_of_movies)
-    movie_title_url = squish_ratings_functions.make_url_title(movie_title)
-    movie_info = squish_ratings_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
+    movie_title_url = squish_reviews_functions.make_url_title(movie_title)
+    movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
         
     if "Random Movie: Dev's Favorites" in request.form.values():
         return redirect(url_for("random_movie"))
     elif 'Search' in request.form.values():
         movie_title = request.form.get("search_text")
-        movie_title_url = squish_ratings_functions.make_url_title(movie_title)
+        movie_title_url = squish_reviews_functions.make_url_title(movie_title)
         return redirect(url_for("search", movie_title_url = movie_title_url))
         
     
@@ -44,18 +44,16 @@ def random_movie():
 @app.route('/search/<movie_title_url>', methods = ['POST', 'GET'])
 def search(movie_title_url):
     
-    movie_info = squish_ratings_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
+    movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
     
     if "Random Movie: Dev's Favorites" in request.form.values():
         return redirect(url_for("random_movie"))
     elif 'Search' in request.form.values():
         movie_title = request.form.get("search_text")
-        movie_title_url = squish_ratings_functions.make_url_title(movie_title)
+        movie_title_url = squish_reviews_functions.make_url_title(movie_title)
         return redirect(url_for("search", movie_title_url = movie_title_url)) 
        
     return render_template (
         "searchmovie.html",
         movie_info = movie_info
     )    
-    
-app.run(debug = True)
