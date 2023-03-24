@@ -69,5 +69,3 @@ def search(movie_title_url):
         "searchmovie.html",
         movie_info = movie_info
     )    
-
-app.run(debug=True)

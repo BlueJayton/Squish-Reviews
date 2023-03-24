@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html land="en">
+<html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
         <title> Squish Reviews</title>
         <meta charset="utf-8">
     </head>
     <body>
-        <img src="C:\Users\Jayton Schreiner\Documents\CS\SWE\project1-jayton-schreiner\SQUISHreviews.png" alt="No image">
-        <form method = post>
-            <input type="text" id="search_text" name="search_text">
-            <input type="submit" name="search_button" value="Search" action="/search/<search_text>">
-            <input type="submit" name="random_movie" value="Random Movie: Dev's Favorites">
-            <br>
-        </form>
+        <img src="{{ url_for('static', filename='SQUISHreviews.png') }}" width="500" height="auto" style="display:block; margin:auto;">
+        <div class="searchandbuttons">
+            <form method = post>
+                <input type="text" id="search_text" name="search_text">
+                <input type="submit" name="search_button" value="Search" action="/search/<search_text>">
+                <input type="submit" name="random_movie" value="Random Movie: Dev's Favorites">
+                <br>
+            </form>
+        </div>
         <div class="content">
             <h1><u>{{movie_info["title"]}}</u></h1>
             <h2>Rating: {{movie_info["rating"]}} / 10</h2>
