@@ -16,3 +16,11 @@
 p {
     font-size: large;
 }
+
+.header {
+    height: 100vh;
+    width: 100%;
+    padding: 0 8%;
+    background: #080008;
+    position: relative;
+}

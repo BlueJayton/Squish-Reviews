@@ -27,6 +27,15 @@ def random_movie():
     movie_title = random.choice(list_of_movies)
     movie_title_url = squish_reviews_functions.make_url_title(movie_title)
     movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
+    
+    if movie_info == False:
+        movie_title = random.choice(list_of_movies)
+        movie_title_url = squish_reviews_functions.make_url_title(movie_title)
+        movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
+        return render_template (
+            "randommovie.html",
+            movie_info = movie_info
+        )
         
     if "Random Movie: Dev's Favorites" in request.form.values():
         return redirect(url_for("random_movie"))
@@ -40,11 +49,14 @@ def random_movie():
         "randommovie.html",
         movie_info = movie_info,
     )
-    
+   
 @app.route('/search/<movie_title_url>', methods = ['POST', 'GET'])
 def search(movie_title_url):
     
     movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
+    
+    if movie_info == False:
+        return redirect(url_for("random_movie"))
     
     if "Random Movie: Dev's Favorites" in request.form.values():
         return redirect(url_for("random_movie"))
@@ -57,3 +69,5 @@ def search(movie_title_url):
         "searchmovie.html",
         movie_info = movie_info
     )    
+
+app.run(debug=True)

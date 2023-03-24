@@ -6,18 +6,19 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <img src="C:\Users\Jayton Schreiner\Documents\CS\SWE\project1-jayton-schreiner\SQUISHreviews.png" alt="No image">
         <form method = post>
             <input type="text" id="search_text" name="search_text">
             <input type="submit" name="search_button" value="Search" action="/search/<search_text>">
             <input type="submit" name="random_movie" value="Random Movie: Dev's Favorites">
             <br>
-            </form>
+        </form>
         <div class="content">
             <h1><u>{{movie_info["title"]}}</u></h1>
             <h2>Rating: {{movie_info["rating"]}} / 10</h2>
             <h2>{{movie_info["genre_string"]}}</h2>
             <p>{{movie_info["description"]}}</p>
-            <img src={{movie_info["poster_link"]}} width="400" height={{movie_info["poster_height"]}}> <br>
+            <img src={{movie_info["poster_link"]}} width="400" height={{movie_info["poster_height"]}} alt="No movie found"> <br>
             <a href={{movie_info["wiki_link"]}}> Wikipedia page for {{movie_info["title"]}} </a>
         </div>
     </body>

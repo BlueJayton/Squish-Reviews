@@ -25,7 +25,11 @@ def get_movie_info_TMDB (movie, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL):
         TMDB_URL_DICT['TMDB_BASE_URL'] + TMDB_URL_DICT['TMDB_SEARCH_PATH'] + TMDB_API_KEY + TMDB_QUERY
     )
     
+       
     movie_request_json = TMDB_response.json()["results"]
+    if movie_request_json == []:
+        print("Movie not found")
+        return False
     
     #tmdb info
     movie_info["title"] = movie_request_json[0]["title"]
