@@ -6,7 +6,7 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <img src="C:\Users\Jayton Schreiner\Documents\CS\SWE\project1-jayton-schreiner\SQUISHreviews.png" alt="No image">
+        <img src="{{ url_for('static', filename='SQUISHreviews.png') }}" width="500" height="auto" style="display:block; margin:auto;">
         <div class="searchandbuttons">
             <form method = post>
                 <input type="text" id="search_text" name="search_text">
