@@ -7,7 +7,7 @@
 
 This website was made with Python and Flask. It uses the TMDB API to retrieve information about movies and the MediaWiki API to get the wikipedia page for the movie.
 
-Libraries use include dotenv, random, os, requests, and urllib.
+Libraries used include dotenv, random, os, requests, and urllib.
 
 Bootstrap scripts and css were used in order to make a dismissable alert that showed flask flash messages whenever a movie was not successfully found by the TMDB API.
 
@@ -23,10 +23,10 @@ In order to fork this and have it ready to be used, you should install all of th
 The API key should be kept in your .env (which should be in your .gitignore) and make sure that the name of the API key in the .env matches the one in the code.
 Likewise, you will need to create a secret key and have it match the name in the code.
 
-One major technical issue was that I kept getting failed deployments due to packages and dependencies not being able to download. To fix this, I installed pipdeptree with pip and used to delete every single package that wasn't explicitly needed for the project.
+One major technical issue was that I kept getting failed deployments due to packages and dependencies not being able to download. To fix this, I installed pipdeptree with pip and used it to delete every single package that wasn't explicitly needed for the project.
 
 Another issue is that I wanted the title of the movie to be in the url whenever a search was done, that way you can send links to other people that take you to specific movies. In order to accomplish this, I had to learn how to do flask redirects and how to pass variables with them. </br></br>
 
-The first persisting problem is that the wiki links aren't 100% accurate. "Room" is a movie, but if you click the wiki link, it takes you to Room as in the architecture. In the future, I will try to fix this. 
+The first persisting problem is that the wiki links aren't 100% accurate. "Room" is a movie, but if you click the wiki link, it takes you to "Room" as in the architecture. In the future, I will try to fix this. 
 
-The other problem is that the site took so much work for functionalty that I didn't have a lot of time for aesthetics. I will work to make the site look a lot better soon.
+The other problem is that the site took so much work for functionality that I didn't have a lot of time for aesthetics. I will work to make the site look a lot better soon.
