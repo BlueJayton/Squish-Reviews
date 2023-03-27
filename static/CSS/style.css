@@ -28,3 +28,11 @@ p {
 .searchandbuttons {
     text-align: center;
 }
+
+.alert {
+    text-align: center;
+    max-width: 500px;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+}

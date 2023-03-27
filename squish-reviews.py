@@ -1,4 +1,5 @@
 from flask import *
+import os
 from dotenv import load_dotenv, find_dotenv
 import random
 import squish_reviews_functions
@@ -6,6 +7,7 @@ import squish_reviews_functions
 load_dotenv(find_dotenv())
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
 
 list_of_movies = ["Scott Pilgrim vs. the World", "Pan's Labyrinth", "The Departed", "The Shawshank Redemption", "Django Unchained", 
                   "Spider-Man: Into the Spider-Verse", "Inglorious Basterds", "Mad Max: Fury Road", "Troll 2", "Hot Fuzz"]
@@ -29,6 +31,7 @@ def random_movie():
     movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
     
     if movie_info == False:
+        flash("No movie Found.")
         movie_title = random.choice(list_of_movies)
         movie_title_url = squish_reviews_functions.make_url_title(movie_title)
         movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
@@ -56,6 +59,7 @@ def search(movie_title_url):
     movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
     
     if movie_info == False:
+        flash("No movie Found.")
         return redirect(url_for("random_movie"))
     
     if "Random Movie: Dev's Favorites" in request.form.values():
@@ -69,3 +73,5 @@ def search(movie_title_url):
         "searchmovie.html",
         movie_info = movie_info
     )    
+    
+app.run()
