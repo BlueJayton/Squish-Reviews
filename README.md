@@ -21,6 +21,7 @@ Depending on the rating of the movie, the poster for the movie will be squished.
 
 In order to fork this and have it ready to be used, you should install all of the languages, frameworks, and libraries above, and get an API key for TMDB.
 The API key should be kept in your .env (which should be in your .gitignore) and make sure that the name of the API key in the .env matches the one in the code.
+Likewise, you will need to create a secret key and have it match the name in the code.
 
 One major technical issue was that I kept getting failed deployments due to packages and dependencies not being able to download. To fix this, I installed pipdeptree with pip and used to delete every single package that wasn't explicitly needed for the project.
 
