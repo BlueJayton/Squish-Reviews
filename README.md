@@ -9,6 +9,8 @@ This website was made with Python and Flask. It uses the TMDB API to retrieve in
 
 Libraries use include dotenv, random, os, requests, and urllib.
 
+Bootstrap scripts and css were used in order to make a dismissable alert that showed flask flash messages whenever a movie was not successfully found by the TMDB API.
+
 The website will start with a randomly selected movie from a list of 10 of my favorite movies. To get a new one, refresh the page or hit the "Random Movie" button.
 
 Using the search text entry box and the search button, you can search for any movie via the TMDB API.
