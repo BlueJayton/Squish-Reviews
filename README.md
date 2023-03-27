@@ -27,6 +27,6 @@ One major technical issue was that I kept getting failed deployments due to pack
 
 Another issue is that I wanted the title of the movie to be in the url whenever a search was done, that way you can send links to other people that take you to specific movies. In order to accomplish this, I had to learn how to do flask redirects and how to pass variables with them. </br></br>
 
-The first persisting problem is that the wiki links aren't 100% accurate. "Room" is a movie, but if you click the wiki link, it takes you to Room as in the architecture. IN the future, I will try to fix this. 
+The first persisting problem is that the wiki links aren't 100% accurate. "Room" is a movie, but if you click the wiki link, it takes you to Room as in the architecture. In the future, I will try to fix this. 
 
 The other problem is that the site took so much work for functionalty that I didn't have a lot of time for aesthetics. I will work to make the site look a lot better soon.
