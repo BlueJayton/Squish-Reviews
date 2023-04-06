@@ -120,7 +120,8 @@ def random_movie():
         return render_template (
             "randommovie.html",
             movie_info = movie_info,
-            comments = comments
+            curr_user = current_user.username,
+            comments = comments,
         )
     
 
@@ -136,7 +137,8 @@ def random_movie():
     return render_template (
         "randommovie.html",
         movie_info = movie_info,
-        comments = comments
+        curr_user = current_user.username,
+        comments = comments,
     )
    
 @app.route('/search/<movie_title_url>', methods = ['POST', 'GET'])
@@ -172,5 +174,6 @@ def search(movie_title_url):
     return render_template (
         "searchmovie.html",
         movie_info = movie_info,
-        comments = comments
+        curr_user = current_user.username,
+        comments = comments,
     )    
