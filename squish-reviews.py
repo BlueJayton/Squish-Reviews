@@ -127,6 +127,8 @@ def random_movie():
         movie_title = request.form.get("search_text")
         movie_title_url = squish_reviews_functions.make_url_title(movie_title)
         return redirect(url_for("search", movie_title_url = movie_title_url))
+    elif 'Logout' in request.form.values():
+        return redirect(url_for("logout"))
     
         
     
@@ -150,6 +152,8 @@ def search(movie_title_url):
         movie_title = request.form.get("search_text")
         movie_title_url = squish_reviews_functions.make_url_title(movie_title)
         return redirect(url_for("search", movie_title_url = movie_title_url))
+    elif 'Logout' in request.form.values():
+        return redirect(url_for("logout"))
     
        
     return render_template (

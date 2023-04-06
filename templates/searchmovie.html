@@ -7,15 +7,17 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <img src="{{ url_for('static', filename='SQUISHreviews.png') }}" width="500" height="auto" style="display:block; margin:auto;">
-        <div class="searchandbuttons">
+
             <form method = post>
-                <input type="text" id="search_text" name="search_text">
-                <input type="submit" name="search_button" value="Search" action="/search/<search_text>">
-                <input type="submit" name="random_movie" value="Random Movie: Dev's Favorites">
+                <input type="submit" name="logout_button" value="Logout" action="/logout">
+                <img src="{{ url_for('static', filename='SQUISHreviews.png') }}" width="500" height="auto" style="display:block; margin:auto;">
+                <div class="searchandbuttons">
+                    <input type="text" id="search_text" name="search_text">
+                    <input type="submit" name="search_button" value="Search" action="/search/<search_text>">
+                    <input type="submit" name="random_movie" value="Random Movie: Dev's Favorites">
+                </div>
                 <br>
             </form>
-        </div>
         <div class="content">
             <h1><u>{{movie_info["title"]}}</u></h1>
             <h2>Rating: {{movie_info["rating"]}} / 10</h2>

@@ -10,7 +10,7 @@ def get_movie_info_TMDB (movie, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL):
     movie_info = {"title" : "", "description": "",
                   "poster_link" : "", "poster_height" : "",
                   "rating" : "", "genre_string" : "",
-                  "wiki_link" : ""}
+                  "wiki_link" : "", "movie_id" : ""}
     
     TMDB_API_KEY = os.getenv("TMDB_API_KEY")
     TMDB_QUERY = "&language=en-US&query=" + movie + "&page=1&include_adult=false"
@@ -35,6 +35,7 @@ def get_movie_info_TMDB (movie, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL):
     movie_info["title"] = movie_request_json[0]["title"]
     movie_info["description"] = movie_request_json[0]["overview"]
     movie_info["poster_link"] = IMG_BASE_URL + movie_request_json[0]["poster_path"]
+    movie_info["movie_id"] = movie_request_json[0]["id"]
     #rating times .1 to make a percentage from 0 to 1
     movie_info["rating"] = round(movie_request_json[0]["vote_average"], 1)
     rating_from_0_to_1 = movie_info["rating"] *.1
