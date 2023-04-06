@@ -109,6 +109,7 @@ def random_movie():
     movie_title = random.choice(list_of_movies)
     movie_title_url = squish_reviews_functions.make_url_title(movie_title)
     movie_info = squish_reviews_functions.get_movie_info_TMDB(movie_title_url, TMDB_URL_DICT, WIKI_URL_DICT, IMG_BASE_URL)
+    movie_title = movie_info["title"]
     
     if movie_info == False:
         flash("No movie Found.")
@@ -121,16 +122,18 @@ def random_movie():
         )
     
 
-    if "Random Movie: Dev's Favorites" in request.form.values():
+    if "random_movie" in request.form:
         return redirect(url_for("random_movie"))
-    elif 'Search' in request.form.values():
+    elif "search_button" in request.form:
         movie_title = request.form.get("search_text")
         movie_title_url = squish_reviews_functions.make_url_title(movie_title)
         return redirect(url_for("search", movie_title_url = movie_title_url))
-    elif 'Logout' in request.form.values():
+    elif "logout_button" in request.form:
         return redirect(url_for("logout"))
     
-        
+    if "make_comment" in request.form:
+        movie_title_url = squish_reviews_functions.make_url_title(movie_info["title"])
+        return redirect(url_for("search", movie_title_url = movie_title_url))
     
     return render_template (
         "randommovie.html",
@@ -146,14 +149,19 @@ def search(movie_title_url):
         flash("No movie Found.")
         return redirect(url_for("random_movie"))
     
-    if "Random Movie: Dev's Favorites" in request.form.values():
+    if "random_movie" in request.form:
         return redirect(url_for("random_movie"))
-    elif 'Search' in request.form.values():
+    elif "search_button" in request.form:
         movie_title = request.form.get("search_text")
         movie_title_url = squish_reviews_functions.make_url_title(movie_title)
         return redirect(url_for("search", movie_title_url = movie_title_url))
-    elif 'Logout' in request.form.values():
+    elif "logout_button" in request.form:
         return redirect(url_for("logout"))
+    
+    if "make_comment" in request.form:
+        movie_title = movie_info["title"]
+        movie_title_url = squish_reviews_functions.make_url_title(movie_title)
+        return redirect(url_for("search", movie_title_url = movie_title_url))
     
        
     return render_template (
