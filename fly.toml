@@ -1,4 +1,4 @@
-# fly.toml file generated for squish-reviews on 2023-03-22T21:31:45-05:00
+# fly.toml file generated for squish-reviews on 2023-04-05T18:01:34-05:00
 
 app = "squish-reviews"
 kill_signal = "SIGINT"
