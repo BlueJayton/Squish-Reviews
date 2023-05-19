@@ -57,6 +57,8 @@ WIKI_URL_DICT = {"WIKI_BASE_URL" : "https://en.wikipedia.org/w/api.php?",
 
 @app.route('/', methods = ['POST', 'GET'])
 def home():
+    
+    ''' Removed in order to dumb down the website
     if request.method == 'POST':
         if "Login" in request.form.values():
             username = request.form.get("username")
@@ -69,6 +71,9 @@ def home():
     return render_template (
         "home.html"
     )
+    '''
+    
+    return redirect(url_for("random_movie"))
 
 @app.route('/login')
 def login():
