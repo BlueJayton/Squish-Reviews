@@ -1,4 +1,4 @@
-<img src="https://github.com/BlueJayton/project1-jayton-schreiner/blob/main/SQUISHreviewswhitebg.png" width="1000" height="auto" title="Squish Reviews. My girlfriend made this logo.">
+<img src="https://github.com/BlueJayton/project1-jayton-schreiner/blob/main/static/SQUISHreviewswhitebg.png" width="1000" height="auto" title="Squish Reviews. My girlfriend made this logo.">
 
 # [Squish Reviews](https://squish-reviews.fly.dev)
 ## A Website where you can tell the rating of a movie by how squished it's poster is!
