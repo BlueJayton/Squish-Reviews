@@ -9,8 +9,6 @@ Libraries used include dotenv, random, os, requests, flask-sqlalchemy, flask-log
 
 Bootstrap scripts and css were used in order to make a dismissable alert that showed flask flash messages whenever a movie was not successfully found by the TMDB API.
 
-Postgres and SQLAlchemy were used to store users.
-
 The website will start with a randomly selected movie from a list of 10 of my favorite movies. To get a new one, refresh the page or hit the "Random Movie" button.
 
 Using the search text entry box and the search button, you can search for any movie via the TMDB API.
